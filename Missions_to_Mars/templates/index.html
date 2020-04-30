@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ 
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="jumbotron text-center">
+      <h1 style="font-weight:bold;">Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="heading" style="font-weight:bold;" >Latest Mars News</h2>
+        <h5 style="font-weight:bold;" >{{mars_info.news_title}}</h5>
+        <small>{{mars_info.news_p}}</small>
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+          <h2 class="heading" style="font-weight:bold;" >Featured Mars Image</h2>
+          <img src="{{mars_info.Space_Image_Link}}" alt="Mars Image" class="img-responsive" style="width:100%;height:50" >
+        </div>
+    
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-body">
+                <h4 style="font-weight:bold;">Current Weather on Mars</h4>
+            <br>
+                <p>{{mars_info.Weather_Info}}</p>
+            </div>
+          </div>
+          <br>
+          <h4>Mars Fact</h2>
+            <table class="table"> 
+                {{mars_info.Mars_Fact|safe}}
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <h2 style="font-weight: bold; text-align: center;">Mars Hemisphere</h2>
+        <div class="col-md-6">
+         
+        {% for info in mars_info.Hemisphere_Info[0:1] %}
+        
+        <img src="{{info.img_url}}" alt="Hemisphere Image" class="img-responsive" style="width:100%;float:right;" >
+      
+        <figcaption style="font-weight: bold;">{{info.title}}</figcaption>
+     
+        {% endfor %}
+        
+        </div>
+        <div class="col-md-6">
+        {% for info in mars_info.Hemisphere_Info[1:2] %}
+        <img src="{{info.img_url}}" alt="Hemisphere Image" class="img-responsive" style="width:100%;" >
+        <figcaption style="font-weight: bold;">{{info.title}}</figcaption>
+        {% endfor %}
+        </div>
+        <div class="col-md-6">
+         
+        {% for info in mars_info.Hemisphere_Info[2:3] %}
+        <img src="{{info.img_url}}" alt="Hemisphere Image" class="img-responsive" style="width:100%;float:right" >
+        <figcaption style="font-weight: bold;">{{info.title}}</figcaption>
+        {% endfor %}
+      
+        </div>
+        <div class="col-md-6">
+        {% for info in mars_info.Hemisphere_Info[3:4] %}
+        <img src="{{info.img_url}}" alt="Hemisphere Image" class="img-responsive" style="width:100%;" >
+        <figcaption style="font-weight: bold;">{{info.title}}</figcaption>
+        {% endfor %}
+        </div>
+    </div>
+
+
+  </div>
+</body>
+
+</html>
+
