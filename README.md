@@ -125,6 +125,3 @@ To submit your work to BootCampSpot, create a new GitHub repository and upload t
 
 * Use Bootstrap to structure your HTML template.
 
-### Copyright
-
-Trilogy Education Services © 2019. All Rights Reserved.
